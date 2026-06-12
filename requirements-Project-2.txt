@@ -1,0 +1,12 @@
+Required Modules Are:
+1. Pandas- for reading csv file
+2. NumPy- for numericals solving
+3. scikit-learn
+   1. sklearn.model_selection – for train_test_split
+   2.sklearn.preprocessing – for StandardScaler
+   3. sklearn.linear_model – for LogisticRegression
+   4. sklearn.linear_model – for LogisticRegression
+   5. sklearn.metrics – for precision_score, recall_score, roc_auc_score, classification_report, confusion_matrix
+4. imbalanced-learn
+   1. imblearn.over_sampling – for SMOTE
+   2. imblearn.pipeline – for Pipeline
