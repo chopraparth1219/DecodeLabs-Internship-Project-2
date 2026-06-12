@@ -31,3 +31,28 @@ This project demonstrates:
 ## Pipeline Architecture (Leak‑Free)
 
 ### Logistic Regression Pipeline
+- Scaling is necessary because logistic regression uses distance‑based regularisation.
+- Both scaler and SMOTE are applied **inside** the pipeline – never on the full dataset before splitting.
+
+### Random Forest Pipeline
+
+- Random Forest is invariant to feature scale; no scaler is required.
+
+### Hyperparameter Tuning
+- `GridSearchCV` with `roc_auc` scoring and cross‑validation (`cv=2` for small dataset; higher values in production).
+- The entire pipeline is passed to GridSearchCV, ensuring SMOTE is reapplied correctly on each validation fold.
+
+## Technologies Used
+
+| Library | Purpose |
+|---------|---------|
+| `pandas`, `numpy` | Data loading and manipulation |
+| `scikit-learn` | Train/test split, scalers, classifiers, metrics, GridSearchCV |
+| `imbalanced-learn` | SMOTE and `imblearn.pipeline.Pipeline` |
+
+## How to Run
+
+1. Ensure `data1.csv` is in the same folder as the script `project2.py`.
+2. Install required packages:
+   ```bash
+   pip install pandas numpy scikit-learn imbalanced-learn
